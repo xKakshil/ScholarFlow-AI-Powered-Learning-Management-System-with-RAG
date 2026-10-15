@@ -12,15 +12,15 @@
       "distribution": "internal",
       "android": { "buildType": "apk" },
       "env": {
-        "EXPO_PUBLIC_API_URL": "https://scholarflow-backend.vercel.app/api",
-        "EXPO_PUBLIC_WEB_URL": "https://scholarflow-frontend-phi.vercel.app"
+        "EXPO_PUBLIC_API_URL": "https://scholar-flow-ai-powered-learning-ma.vercel.app/api",
+        "EXPO_PUBLIC_WEB_URL": "https://scholarflow-app.vercel.app"
       }
     },
     "production": {
       "autoIncrement": true,
       "env": {
-        "EXPO_PUBLIC_API_URL": "https://scholarflow-backend.vercel.app/api",
-        "EXPO_PUBLIC_WEB_URL": "https://scholarflow-frontend-phi.vercel.app"
+        "EXPO_PUBLIC_API_URL": "https://scholar-flow-ai-powered-learning-ma.vercel.app/api",
+        "EXPO_PUBLIC_WEB_URL": "https://scholarflow-app.vercel.app"
       }
     }
   },
