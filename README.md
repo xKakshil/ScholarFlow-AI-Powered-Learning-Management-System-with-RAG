@@ -24,7 +24,7 @@ A single backend API serves both a web app and an iOS/Android app, so every feat
 - **Checkout flow:** payment, enrollment and progress are written in one database transaction
 - **One backend, two clients:** Next.js web app and Expo mobile app
 
-**Live:** [Web app](https://scholarflow-frontend-phi.vercel.app) · [API health check](https://scholarflow-backend.vercel.app/api/health)
+**Live:** [Web app](https://scholarflow-app.vercel.app) · [API health check](https://scholar-flow-ai-powered-learning-ma.vercel.app/api/health)
 
 ![ScholarFlow web home](docs/web-home.jpg)
 
@@ -395,7 +395,7 @@ The seed only creates or replaces `@scholarflow.dev` accounts and their courses,
 
 ## API reference
 
-Base URL: `http://localhost:3000/api` locally, or `https://scholarflow-backend.vercel.app/api` in production.
+Base URL: `http://localhost:3000/api` locally, or `https://scholar-flow-ai-powered-learning-ma.vercel.app/api` in production.
 
 Send protected requests with the header `Authorization: Bearer <token>`. Errors are returned as `{ "error": "message" }` with a matching status code:
 
