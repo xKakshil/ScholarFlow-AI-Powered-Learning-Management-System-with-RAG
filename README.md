@@ -240,8 +240,8 @@ Each app is a standalone npm package with its own `package.json`, `.env.example`
 ### 1. Clone
 
 ```bash
-git clone https://github.com/xKakshil/scholarflow.git
-cd scholarflow
+git clone https://github.com/xKakshil/ScholarFlow-AI-Powered-Learning-Management-System-with-RAG.git
+cd ScholarFlow-AI-Powered-Learning-Management-System-with-RAG
 ```
 
 ### 2. Backend (start this first)
