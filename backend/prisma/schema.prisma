@@ -1,0 +1,111 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  ADMIN
+  INSTRUCTOR
+  LEARNER
+}
+
+model User {
+  id          String       @id @default(uuid())
+  name        String?
+  email       String       @unique
+  password    String
+  role        Role         @default(LEARNER)
+  courses     Course[]
+  enrollments Enrollment[]
+  progress    Progress[]
+  payments    Payment[]
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+}
+
+model Course {
+  id           String       @id @default(uuid())
+  title        String
+  description  String
+  price        Int
+  thumbnail    String?
+  category     String?
+  level        String?
+  instructorId String
+  instructor   User         @relation(fields: [instructorId], references: [id])
+  lessons      Lesson[]
+  enrollments  Enrollment[]
+  quizzes      Quiz[]
+  progress     Progress[]
+  payments     Payment[]
+  createdAt    DateTime     @default(now())
+}
+
+model Lesson {
+  id        String         @id @default(uuid())
+  title     String
+  videoUrl  String?
+  notes     String?
+  pdfUrl    String?
+  courseId  String
+  course    Course         @relation(fields: [courseId], references: [id])
+  chunks    ContentChunk[]
+  createdAt DateTime       @default(now())
+}
+
+model Enrollment {
+  id        String   @id @default(uuid())
+  userId    String
+  courseId  String
+  user      User     @relation(fields: [userId], references: [id])
+  course    Course   @relation(fields: [courseId], references: [id])
+  createdAt DateTime @default(now())
+}
+
+model ContentChunk {
+  id         String                      @id @default(uuid())
+  content    String
+  source     String                      @default("notes")
+  chunkIndex Int                         @default(0)
+  embedding  Unsupported("vector(768)")?
+  lessonId   String?
+  lesson     Lesson?                     @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+  createdAt  DateTime                    @default(now())
+
+  @@index([lessonId])
+}
+
+model Quiz {
+  id       String @id @default(uuid())
+  question String
+  options  Json
+  answer   String
+  courseId String
+  course   Course @relation(fields: [courseId], references: [id])
+}
+
+model Progress {
+  id         String   @id @default(uuid())
+  percentage Int      @default(0)
+  completed  Boolean  @default(false)
+  userId     String
+  courseId   String
+  user       User     @relation(fields: [userId], references: [id])
+  course     Course   @relation(fields: [courseId], references: [id])
+  updatedAt  DateTime @updatedAt
+}
+
+model Payment {
+  id        String   @id @default(uuid())
+  amount    Int
+  status    String
+  userId    String
+  courseId  String
+  user      User     @relation(fields: [userId], references: [id])
+  course    Course   @relation(fields: [courseId], references: [id])
+  createdAt DateTime @default(now())
+}

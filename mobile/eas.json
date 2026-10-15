@@ -1,0 +1,30 @@
+{
+  "cli": {
+    "version": ">= 16.0.0",
+    "appVersionSource": "remote"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal"
+    },
+    "preview": {
+      "distribution": "internal",
+      "android": { "buildType": "apk" },
+      "env": {
+        "EXPO_PUBLIC_API_URL": "https://scholarflow-backend.vercel.app/api",
+        "EXPO_PUBLIC_WEB_URL": "https://scholarflow-frontend-phi.vercel.app"
+      }
+    },
+    "production": {
+      "autoIncrement": true,
+      "env": {
+        "EXPO_PUBLIC_API_URL": "https://scholarflow-backend.vercel.app/api",
+        "EXPO_PUBLIC_WEB_URL": "https://scholarflow-frontend-phi.vercel.app"
+      }
+    }
+  },
+  "submit": {
+    "production": {}
+  }
+}
