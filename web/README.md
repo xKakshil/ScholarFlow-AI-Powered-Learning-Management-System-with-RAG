@@ -2,7 +2,7 @@
 
 Web app for **ScholarFlow**, a learning platform where the AI tutor answers from each course's own notes. It shares the [backend](../backend) with the [mobile app](../mobile) and has the same features for every role.
 
-**Live:** https://scholarflow-frontend-phi.vercel.app
+**Live:** https://scholarflow-app.vercel.app
 
 ## Features
 
