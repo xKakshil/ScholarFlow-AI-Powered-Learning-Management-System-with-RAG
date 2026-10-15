@@ -2,7 +2,7 @@
 
 Backend for **ScholarFlow**, a learning platform with role-based dashboards and an AI tutor that answers from each course's own material. It serves the [web app](../web) and the [mobile app](../mobile).
 
-**Live API:** https://scholarflow-backend.vercel.app · **Health:** `/api/health`
+**Live API:** https://scholar-flow-ai-powered-learning-ma.vercel.app · **Health:** `/api/health`
 
 ## Features
 
